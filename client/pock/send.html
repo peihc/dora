@@ -1,0 +1,20 @@
+<template name="pockSend">
+    <header>
+        <div class="header">
+            send a poker
+            <a class="left" href="/"><i class="fa fa-angle-left"></i></a>
+        </div>
+    </header>
+   <div class="ar-list" style="padding-bottom:50px;">
+        {{#each needs}}
+            <a href="/pock/express?id={{pid}}&need={{_id}}" class="ar-need">
+             
+              <div class="ar-tip ar-tip-{{ptype}} "><div class="ar-tip-pic" style="background-image:url(/{{ptype}}.png)"></div>{{type}}</div>
+              <div> Create At : {{format createAt}}</div>
+               <div> Desc : {{desc}}</div>
+              <div> Max : {{num}} </div>
+              <div> Recive : {{recive}} </div>
+            </a>
+        {{/each }}
+    </div>
+</template>

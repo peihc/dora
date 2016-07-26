@@ -1,0 +1,79 @@
+<template name="index">
+    <header>
+        <div class="header">
+            <div class="logo"></div>
+            <a class="right" href="/home"><i class="fa fa-user"></i></a>
+            <a class="left" ><i class="fa fa-bars"></i></a>
+        </div>
+    </header>
+    <div class="menu">
+    	
+    	<a href="/admin/pocker">pockers statistics <i class="fa fa-angle-right"></i> </a>
+    	<a href="/admin/roles">roles mananger <i class="fa fa-angle-right"></i> </a>
+	    <a href="/admin/req">goods mananger <i class="fa fa-angle-right"></i> </a>
+    	<a href="#">about us <i class="fa fa-angle-right"></i></a>
+    </div>
+    <div class="msg-input _flex">
+    	<div class="_flex-1"><input type="text" id="msg" placeholder="say some word ..." /></div>
+    	<div class="sendMsg">Send</div>
+    </div>
+    <div class="msg-pad">
+    	{{#each messages}}
+
+    	<div class="msg-item _flex animated bounceInLeft">
+    		<div class="msg-avatar" style="background-image:url({{avatar}})"></div>
+    		<div class="msg-info _flex-1">
+    		{{#if compare type "MESSAGE"}}
+    		<div class="msg-body">{{content}}</div>
+    		{{/if }}
+
+    		{{#if compare type "REQ"}}
+    		<div class="msg-body">
+    			<div>发布捐赠需求: {{data.pname}} {{data.tname}} </div>
+    			<div class="msg-tip msg-tip-{{data.ptype}}">
+    				<div class="msg-tip-pic" style="background-image:url(/{{data.ptype}}.png)"></div>
+    				<div class="msg-tip-t" >{{data.type}}</div>
+    				<div class="msg-tip-num">x {{data.num}}</div>
+    			</div>
+    			{{content}}
+
+    		</div>
+    		{{/if }}
+
+    		{{#if compare type "SEND"}}
+    		<div class="msg-body">
+    			<div>响应公益，出一分力！！</div>
+    			<div>
+    			<div class="mi-item " style="background-image:url({{data.thumb}})"></div>
+    			<div class="mi-item " style="background-image:url({{bill}})"></div>
+    			<div class="clear"></div>
+    			</div>
+    			{{content}}
+
+    		</div>
+    		{{/if }}
+    		<div class="msg-nick"> {{nick}} @ {{format createAt}}</div>
+    		
+
+    		</div>
+    	</div>
+    	{{/each }}
+    </div>
+    <div class="itemlist swiper-container ">
+        <div class="swiper-wrapper _flex">
+        		{{#each pocks}}
+				<div class="item swiper-slide _animation">
+                    <div class="tip tip-{{ptype}}"> {{type }} <div class="pocks-pic" style="background-image:url(/{{ptype}}.png)"></div></div>
+                    <div class="pic" style="background-image:url({{thumb}})"></div>
+                    <div class="desc">{{desc }}</div>
+                    <div class="point"> + {{point}}</div>
+                    <div class="remove"><i class="fa fa-remove"></i></div>
+                    <a href="/pock/send?id={{_id}}" class="send"><i class="fa fa-send"></i></a>
+                </div>
+                {{/each }}
+                <a class="item swiper-slide _animation createPock" href="/pock/create">
+                	<div class="item-link"><i class="fa fa-plus"></i> create a poker</div>
+                </a>
+        </div>
+    </div>
+</template>

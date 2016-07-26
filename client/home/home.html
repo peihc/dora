@@ -1,0 +1,29 @@
+<template name="home">
+    <div class="page page-with-header-footer home">
+        <header>
+            <div class="header">
+                My
+                <a class="left" href="/"><i class="fa fa-angle-left"></i></a>
+            </div>
+        </header>
+        <div class="banner _flex">
+            <div class="img ">
+                <div style="background-image:url({{user.avatar}});background-size:100% 100%">
+                    <input type="file" id="avatar" />
+                </div>
+            </div>
+            <div class="home-b _flex-1">
+                <div class="h-nickname " style="float:left;"> {{ user.nickname }} </div>
+                <div class="h-point " style="clear:left;">Point ：{{user.point}} </div>
+            </div>
+        </div>
+        <div class="he-list">
+            {{#each express}}
+            <div class="he-item">
+                <div class="he-name"> {{format createAt}}</div>
+                <div class="he-thumb" style="background-image:url({{thumb}})"></div>
+            </div>
+            {{/each }}
+        </div>
+    </div>
+</template>

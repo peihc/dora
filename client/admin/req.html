@@ -1,0 +1,51 @@
+<template name="adminReq">
+    <header>
+        <div class="header">
+            Goods Manager
+            <a class="left" href="/"><i class="fa fa-angle-left"></i></a>
+        </div>
+    </header>
+    <div class="ff-form" style="margin-bottom:10px;">
+        <div class="ff-line">
+            <label>Type One</label>
+            <select id="ptype">
+                {{#each types}}
+                <option value="{{key}}">{{desc}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="ff-line">
+            <label>Type Two</label>
+            <select id="type">
+                {{#each types2}}
+                <option value="{{key}}">{{desc}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="ff-line">
+            <label>Desc</label>
+            <input id="desc" type="text" placeholder="some word ..." />
+        </div>
+        <div class="ff-line">
+            <label>Number</label>
+            <input id="num" type="tel"  value="100"/>
+        </div>
+        
+        <div class="ff-btn-group">
+            <div class="ff-btn" id="pa-create">submit</div>
+        </div>
+    </div>
+
+    <div class="ar-list" style="padding-bottom:50px;">
+        {{#each needs}}
+            <div class="ar-need">
+             
+              <div class="ar-tip ar-tip-{{ptype}} "><div class="ar-tip-pic" style="background-image:url(/{{ptype}}.png)"></div>{{type}}</div>
+              <div> Create At : {{format createAt}}</div>
+               <div> Desc : {{desc}}</div>
+              <div> Max : {{num}} </div>
+              <div> Recive : {{recive}} </div>
+            </div>
+        {{/each }}
+    </div>
+</template>

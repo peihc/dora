@@ -1,0 +1,21 @@
+{
+    "server": {
+        "host": "101.200.131.26",
+        "username": "root",
+        "password": "Sunhn1984",
+        "sshOptions": { "port" : 22 },
+        "env": {}
+    },
+    "setup": {
+        "mongo": true,
+        "path": "/alidata/www"
+    },
+    "deploy": {
+        "appName": "dora",
+        "env": {
+            "MONGO_URL": "mongodb://localhost:27017/dora",
+            "PORT": 80,
+            "ROOT_URL": "http://dora.fami2u.com"
+        }
+    } 
+}
